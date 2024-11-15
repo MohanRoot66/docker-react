@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t MohanRoot66/devreact -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true MohanRoot66/devreact npm run test
